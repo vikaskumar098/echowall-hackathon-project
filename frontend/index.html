@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EchoWall – Anonymous Confessions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<div class="app">
+  <header class="header">
+    <h1>🧠 EchoWall</h1>
+    <p>Anonymous thoughts • Real emotions</p>
+  </header>
+
+  <section class="composer">
+    <textarea id="text" placeholder="Type what you feel anonymously..."></textarea>
+    <div class="composer-footer">
+      <span id="count">0 / 1000</span>
+      <button onclick="postConfession()">Post</button>
+    </div>
+  </section>
+
+  <input
+    id="search"
+    class="search"
+    placeholder="🔍 Search confessions..."
+    oninput="loadConfessions()"
+  />
+
+  <section class="wall">
+    <h2>🔥 Confession Wall</h2>
+    <div id="wall"></div>
+  </section>
+
+  <section class="chart-box">
+    <h2>📊 Emotion Analytics</h2>
+    <canvas id="trendChart"></canvas>
+  </section>
+
+  <footer>FastAPI + MongoDB • Hackathon Project</footer>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
