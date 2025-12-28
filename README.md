@@ -1,10 +1,10 @@
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366f1,100:22c55e&height=200&section=header&text=EchoWall&fontSize=50&fontColor=ffffff&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366f1,50:22c55e,100:38bdf8&height=230&section=header&text=EchoWall&fontSize=56&fontColor=ffffff&animation=fadeIn" />
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&size=28&pause=1000&color=6366F1&center=true&vCenter=true&width=750&lines=EchoWall+%F0%9F%A7%A0;Anonymous+Emotion+Platform;Confessions+%7C+Reactions+%7C+Comments+%7C+Analytics" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=30&pause=1000&color=6366F1&center=true&vCenter=true&width=900&lines=EchoWall+🧠;Anonymous+Thoughts+%7C+Real+Emotions;A+Safe+Digital+Space+to+Be+Heard;Built+for+Honesty%2C+Empathy+%26+Insight" />
 </p>
 
 <p align="center">
@@ -16,55 +16,62 @@
 
 ---
 
-## ✨ EchoWall — Anonymous Emotion Platform
+## 🌌 About EchoWall
 
-> **Anonymous thoughts. Real emotions. Real insights.**
+> **“Anonymous by design. Human by heart.”**
 
-EchoWall is an anonymous confession platform that detects emotions and visualizes community sentiment through reactions, comments, and real-time analytics — creating a safe and empathetic digital space.
-
----
-
-## 🎯 Inspiration
-
-In college environments, many students hesitate to express their thoughts and emotions openly due to fear of judgment and lack of safe platforms. As a result, stress, anxiety, and important opinions often remain unheard.
-
-EchoWall was inspired by the need to build a platform where individuals can freely share their feelings without revealing their identity, while also gaining meaningful emotional insights from the community.
+EchoWall is an **anonymous emotion-sharing platform** that empowers users to express thoughts freely without fear of judgment.  
+It combines **minimalist premium UI**, **reaction-driven engagement**, and **real-time analytics** to surface the collective emotional pulse of a community.
 
 ---
 
-## ⚙️ What It Does
+## 💡 Why EchoWall?
 
-- 🕵️‍♂️ Post confessions **100% anonymously**
-- 👍 React with **Like, Love, Sad**
-- 💬 Anonymous comments for support and engagement
-- 🎨 Emotion-based UI (Positive / Neutral / Negative)
-- 🔥 Trending confessions based on reactions
-- 📊 Real-time community emotion analytics
+In real life, many emotions remain unspoken because of:
+- Social pressure  
+- Fear of judgment  
+- Lack of safe spaces  
+
+**EchoWall solves this by removing identity from expression.**  
+What remains is honesty.
 
 ---
 
-## 🎨 Emotion Visualization
+## ⚙️ Core Features
 
-| Emotion | UI Indicator |
-|-------|--------------|
-| 🟢 Positive | Green Glow |
-| ⚪ Neutral | Grey Border |
-| 🔴 Negative | Red Glow |
+✨ **Anonymous Confessions** — no login, no identity  
+👍 **Reactions** — Like • Love • Sad  
+🔥 **Trending Confessions** — powered by engagement  
+📊 **Reaction Analytics** — visualized with charts  
+🌗 **Dark / Light Theme Toggle**  
+⚡ **Optimistic UI** — instant updates, no flicker  
+🧠 **Mood Awareness** — emotion-based UI cues  
+
+---
+
+## 🎨 Emotion-Aware UI System
+
+| Emotion | Visual Treatment |
+|------|------------------|
+| 🟢 Positive | Soft green glow |
+| ⚪ Neutral | Clean minimal border |
+| 🔴 Negative | Subtle red accent |
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&size=20&pause=800&color=22C55E&center=true&vCenter=true&width=600&lines=Analyzing+Emotions...;Detecting+Sentiment...;Visualizing+Community+Mood..." />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&size=20&pause=900&color=22C55E&center=true&vCenter=true&width=650&lines=Listening+to+Emotions...;Tracking+Community+Mood...;Turning+Silence+into+Insight..." />
 </p>
 
 ---
 
-## 🧠 Emotion Detection (No Paid APIs)
+## 🧠 Emotion Detection (Offline & Hackathon-Safe)
 
-EchoWall uses a **local NLP-inspired sentiment engine** to classify emotions into:
-- Positive
-- Neutral
-- Negative
+EchoWall uses a **local sentiment logic engine** —  
+❌ No paid APIs  
+❌ No external AI dependency  
 
-This ensures **fast performance**, **offline reliability**, and **hackathon-safe execution**.
+✔ Fast  
+✔ Reliable  
+✔ Privacy-friendly  
 
 ---
 
@@ -76,12 +83,12 @@ This ensures **fast performance**, **offline reliability**, and **hackathon-safe
 
 - **Backend:** FastAPI (Python)  
 - **Database:** MongoDB Atlas  
-- **Frontend:** HTML, CSS, JavaScript  
+- **Frontend:** HTML • CSS • JavaScript  
 - **Charts:** Chart.js  
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ Architecture Overview
 
 ```
 
@@ -128,34 +135,34 @@ python -m uvicorn backend.main:app --reload
 
 ---
 
-## 🏆 Accomplishments
+## 🏆 Key Achievements
 
-* ✅ Fully anonymous & interactive platform
-* 🎨 Emotion-aware animated UI
-* 💬 Anonymous comments & reactions
-* 📊 Live analytics dashboard
-* 🚀 Clean, scalable architecture
-* 💸 No dependency on paid APIs
+✅ Fully anonymous user experience
+🎨 Emotion-aware premium UI
+⚡ Smooth, flicker-free interactions
+📊 Real-time analytics modal
+🚀 Scalable backend architecture
+💸 Zero dependency on paid APIs
 
 ---
 
 ## 📚 What We Learned
 
+* Designing emotion-first user experiences
 * Building scalable APIs with FastAPI
 * MongoDB data modeling
-* Frontend–backend integration
-* Emotion analytics & UX design
+* Optimistic UI patterns
 * Feature prioritization under hackathon pressure
 
 ---
 
-## 🔮 Future Scope
+## 🔮 Future Roadmap
 
-* 🤖 Advanced AI sentiment analysis
-* 🚨 Toxic content moderation
-* 📈 Time-based emotion trends
-* 📱 Mobile App / PWA
-* 🛠️ Admin analytics dashboard
+🤖 Advanced NLP sentiment analysis
+🚨 Toxic content moderation
+📈 Time-based emotion trends
+📱 Mobile App / PWA
+🛠️ Admin analytics dashboard
 
 ---
 
@@ -168,17 +175,16 @@ python -m uvicorn backend.main:app --reload
 
 ---
 
-## 🎥 Demo Preview (Placeholder)
+## 🎥 Demo Preview
 
 <p align="center">
-  <img width="1919" height="1142" alt="image" src="https://github.com/user-attachments/assets/94e32aac-3c6d-4917-a6c6-43f9f3dda54b" />
+<img width="1915" height="1040" alt="image" src="https://github.com/user-attachments/assets/314a29f4-0d25-4ba9-9983-66cd01bffd55" />
 
 </p>
-
 
 ---
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&size=22&pause=1000&color=22C55E&center=true&vCenter=true&width=650&lines=Thanks+for+checking+out+EchoWall!;Don’t+forget+to+Star+⭐+the+Repo" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&size=22&pause=1000&color=22C55E&center=true&vCenter=true&width=720&lines=Thanks+for+exploring+EchoWall!;If+this+project+resonates+with+you+—+Star+⭐+the+repo" />
 </p>
 
