@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>EchoWall – Anonymous Confessions</title>
+  <title>EchoWall • Anonymous Confessions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Chart.js -->
@@ -13,37 +13,47 @@
 <body>
 
 <div class="app">
+
   <header class="header">
-    <h1>🧠 EchoWall</h1>
+    <div class="header-top">
+      <h1>🧠 EchoWall</h1>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
     <p>Anonymous thoughts • Real emotions</p>
   </header>
 
   <section class="composer">
-    <textarea id="text" placeholder="Type what you feel anonymously..."></textarea>
+    <textarea id="text" placeholder="Write what you feel… anonymously" maxlength="1000"></textarea>
     <div class="composer-footer">
       <span id="count">0 / 1000</span>
-      <button onclick="postConfession()">Post</button>
+      <button class="primary-btn" onclick="postConfession()">Post</button>
     </div>
   </section>
-
-  <input
-    id="search"
-    class="search"
-    placeholder="🔍 Search confessions..."
-    oninput="loadConfessions()"
-  />
 
   <section class="wall">
     <h2>🔥 Confession Wall</h2>
     <div id="wall"></div>
   </section>
 
-  <section class="chart-box">
-    <h2>📊 Emotion Analytics</h2>
-    <canvas id="trendChart"></canvas>
-  </section>
+  <!-- ===== ANALYTICS MODAL ===== -->
+  <div id="analyticsModal" class="modal hidden">
+    <div class="modal-card">
+      <h3>📊 Reaction Analytics</h3>
+      <canvas id="reactionChart"></canvas>
+      <button class="primary-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
 
-  <footer>FastAPI + MongoDB • Hackathon Project</footer>
+  <!-- ===== SKELETON ===== -->
+  <template id="skeleton">
+    <div class="confession skeleton">
+      <div class="line"></div>
+      <div class="line short"></div>
+    </div>
+  </template>
+
+ <footer>“No names. No judgments. Just emotions.”</footer>
+
 </div>
 
 <script src="/static/script.js"></script>

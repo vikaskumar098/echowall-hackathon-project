@@ -1,106 +1,133 @@
-const textArea = document.getElementById("text");
-const counter = document.getElementById("count");
-
-const positiveWords = ["happy","good","love","success","excited","proud"];
-const negativeWords = ["sad","depressed","stress","cry","hate","fail"];
-
+const API = "http://127.0.0.1:8000/api";
+let confessionCache = [];
 let chart;
 
+/* ===== TEXT COUNTER ===== */
+const textArea = document.getElementById("text");
+const countEl = document.getElementById("count");
+
 textArea.addEventListener("input", () => {
-  counter.innerText = `${textArea.value.length} / 1000`;
+  countEl.innerText = `${textArea.value.length} / 1000`;
 });
 
-function getSentiment(text) {
-  let score = 0;
-  const t = text.toLowerCase();
-  positiveWords.forEach(w => { if (t.includes(w)) score++; });
-  negativeWords.forEach(w => { if (t.includes(w)) score--; });
-  if (score > 0) return "positive";
-  if (score < 0) return "negative";
-  return "neutral";
-}
-
+/* ===== POST ===== */
 function postConfession() {
   const text = textArea.value.trim();
-  if (!text) return;
+  if (!text) return alert("Write something");
 
-  fetch("/api/confessions", {
+  fetch(`${API}/confessions`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text })
   }).then(() => {
     textArea.value = "";
-    counter.innerText = "0 / 1000";
+    countEl.innerText = "0 / 1000";
     loadConfessions();
   });
 }
 
-function react(id, type) {
-  fetch(`/api/confessions/${id}/react`, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ reaction: type })
-  }).then(() => loadConfessions());
-}
-
+/* ===== LOAD ===== */
 function loadConfessions() {
-  const q = document.getElementById("search").value.toLowerCase();
+  const wall = document.getElementById("wall");
+  wall.innerHTML = "";
 
-  fetch("/api/confessions")
+  const skel = document.getElementById("skeleton");
+  for (let i = 0; i < 3; i++) wall.append(skel.content.cloneNode(true));
+
+  fetch(`${API}/confessions`)
     .then(res => res.json())
     .then(data => {
-      const wall = document.getElementById("wall");
-      wall.innerHTML = "";
-
-      let likes = 0, loves = 0, sads = 0;
-
-      data
-        .filter(c => c.text.toLowerCase().includes(q))
-        .forEach(c => {
-          const sentiment = getSentiment(c.text);
-          const total = c.reactions.like + c.reactions.love + c.reactions.sad;
-
-          likes += c.reactions.like;
-          loves += c.reactions.love;
-          sads += c.reactions.sad;
-
-          wall.innerHTML += `
-            <div class="confession ${sentiment}">
-              <p>${c.text}</p>
-              <div class="meta">
-                <div class="reactions">
-                  <button onclick="react('${c._id}','like')">👍 ${c.reactions.like}</button>
-                  <button onclick="react('${c._id}','love')">❤️ ${c.reactions.love}</button>
-                  <button onclick="react('${c._id}','sad')">😢 ${c.reactions.sad}</button>
-                </div>
-                ${total >= 5 ? `<span class="trending">TRENDING</span>` : ``}
-              </div>
-            </div>
-          `;
-        });
-
-      updateChart(likes, loves, sads);
+      confessionCache = data;
+      render();
     });
 }
 
-function updateChart(likes, loves, sads) {
-  const ctx = document.getElementById("trendChart");
+/* ===== RENDER ===== */
+function render() {
+  const wall = document.getElementById("wall");
+  wall.innerHTML = "";
 
+  confessionCache.forEach(c => {
+    const total = c.reactions.like + c.reactions.love + c.reactions.sad;
+    const trending = total >= 5 ? `<span class="trending">🔥 TRENDING</span>` : "";
+
+    wall.innerHTML += `
+      <div class="confession">
+        <p>${c.text}</p>
+        <div class="meta">
+          ${trending}
+          <div class="reactions">
+            <button onclick="react('${c._id}','like')">👍 ${c.reactions.like}</button>
+            <button onclick="react('${c._id}','love')">❤️ ${c.reactions.love}</button>
+            <button onclick="react('${c._id}','sad')">😢 ${c.reactions.sad}</button>
+            <button onclick="openAnalytics('${c._id}')">📊</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+/* ===== REACT (NO BLINK) ===== */
+function react(id, type) {
+  const c = confessionCache.find(x => x._id === id);
+  if (!c) return;
+
+  c.reactions[type]++;
+  render();
+
+  fetch(`${API}/confessions/${id}/react`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ reaction: type })
+  }).catch(() => {
+    c.reactions[type]--;
+    render();
+  });
+}
+
+/* ===== ANALYTICS ===== */
+function openAnalytics(id) {
+  document.getElementById("analyticsModal").classList.remove("hidden");
+
+  const c = confessionCache.find(x => x._id === id);
+  if (!c) return;
+
+  const ctx = document.getElementById("reactionChart");
   if (chart) chart.destroy();
 
   chart = new Chart(ctx, {
-    type: "bar",
+    type: "doughnut",
     data: {
-      labels: ["👍 Like", "❤️ Love", "😢 Sad"],
+      labels: ["Like", "Love", "Sad"],
       datasets: [{
-        data: [likes, loves, sads]
+        data: [c.reactions.like, c.reactions.love, c.reactions.sad],
+        backgroundColor: ["#60a5fa", "#f472b6", "#facc15"]
       }]
     },
     options: {
-      responsive: true,
-      plugins: { legend: { display: false } }
+      plugins: { legend: { position: "bottom" } }
     }
   });
+}
+
+function closeModal() {
+  document.getElementById("analyticsModal").classList.add("hidden");
+}
+
+/* ===== THEME TOGGLE ===== */
+const root = document.documentElement;
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "light") root.setAttribute("data-theme", "light");
+
+function toggleTheme() {
+  if (root.getAttribute("data-theme") === "light") {
+    root.removeAttribute("data-theme");
+    localStorage.setItem("theme", "dark");
+  } else {
+    root.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+  }
 }
 
 loadConfessions();

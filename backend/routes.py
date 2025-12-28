@@ -11,12 +11,18 @@ router = APIRouter(prefix="/api", tags=["confessions"])
 def create_confession(payload: ConfessionCreate):
     doc = {
         "text": payload.text,
-        "reactions": {"like": 0, "love": 0, "sad": 0},
+        "reactions": {
+            "like": 0,
+            "love": 0,
+            "sad": 0
+        },
         "created_at": datetime.utcnow()
     }
+
     result = get_collection().insert_one(doc)
     doc["_id"] = str(result.inserted_id)
     return doc
+
 
 @router.get("/confessions")
 def get_confessions():
@@ -25,6 +31,7 @@ def get_confessions():
         doc["_id"] = str(doc["_id"])
         data.append(doc)
     return data
+
 
 @router.patch("/confessions/{confession_id}/react")
 def react(confession_id: str, payload: ReactionRequest):
