@@ -1,10 +1,10 @@
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366f1,50:22c55e,100:38bdf8&height=230&section=header&text=EchoWall&fontSize=56&fontColor=ffffff&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:6366f1,45:22c55e,100:38bdf8&height=240&section=header&text=EchoWall&fontSize=58&fontColor=ffffff&animation=fadeIn&fontAlignY=35" />
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=30&pause=1000&color=6366F1&center=true&vCenter=true&width=900&lines=EchoWall+🧠;Anonymous+Thoughts+%7C+Real+Emotions;A+Safe+Digital+Space+to+Be+Heard;Built+for+Honesty%2C+Empathy+%26+Insight" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=600&size=30&pause=900&color=6366F1&center=true&vCenter=true&width=900&lines=EchoWall+🧠;Anonymous+Thoughts+•+Real+Emotions;A+Safe+Digital+Space+to+Be+Heard;Built+for+Honesty%2C+Empathy+%26+Insight" />
 </p>
 
 <p align="center">
@@ -20,32 +20,34 @@
 
 > **“Anonymous by design. Human by heart.”**
 
-EchoWall is an **anonymous emotion-sharing platform** that empowers users to express thoughts freely without fear of judgment.  
-It combines **minimalist premium UI**, **reaction-driven engagement**, and **real-time analytics** to surface the collective emotional pulse of a community.
+**EchoWall** is an anonymous emotion-sharing platform that allows users to express thoughts freely without fear of judgment.  
+It blends a **premium, emotion-aware UI** with **reaction-driven engagement** and **real-time analytics** to reveal the collective emotional pulse of a community.
+
+This project was built with a **product mindset**, focusing on empathy, clarity, and smooth user experience.
 
 ---
 
 ## 💡 Why EchoWall?
 
-In real life, many emotions remain unspoken because of:
+In many college and online environments, people hesitate to speak openly due to:
+
 - Social pressure  
 - Fear of judgment  
-- Lack of safe spaces  
+- Lack of safe expression spaces  
 
-**EchoWall solves this by removing identity from expression.**  
-What remains is honesty.
+**EchoWall removes identity from expression — leaving only honesty.**
 
 ---
 
 ## ⚙️ Core Features
 
-✨ **Anonymous Confessions** — no login, no identity  
-👍 **Reactions** — Like • Love • Sad  
-🔥 **Trending Confessions** — powered by engagement  
-📊 **Reaction Analytics** — visualized with charts  
-🌗 **Dark / Light Theme Toggle**  
+✨ **100% Anonymous Confessions** — no login, no identity  
+👍 **Reactions System** — Like • Love • Sad  
+🔥 **Trending Confessions** — based on community engagement  
+📊 **Reaction Analytics Modal** — visual insights using charts  
+🌗 **Dark / Light Theme Toggle** — premium UI polish  
 ⚡ **Optimistic UI** — instant updates, no flicker  
-🧠 **Mood Awareness** — emotion-based UI cues  
+🧠 **Mood Awareness** — emotion-based visual cues  
 
 ---
 
@@ -65,13 +67,18 @@ What remains is honesty.
 
 ## 🧠 Emotion Detection (Offline & Hackathon-Safe)
 
-EchoWall uses a **local sentiment logic engine** —  
+EchoWall uses a **local sentiment logic engine** to classify content as:
+
+- Positive  
+- Neutral  
+- Negative  
+
 ❌ No paid APIs  
 ❌ No external AI dependency  
 
 ✔ Fast  
-✔ Reliable  
 ✔ Privacy-friendly  
+✔ Hackathon-safe  
 
 ---
 
@@ -84,7 +91,7 @@ EchoWall uses a **local sentiment logic engine** —
 - **Backend:** FastAPI (Python)  
 - **Database:** MongoDB Atlas  
 - **Frontend:** HTML • CSS • JavaScript  
-- **Charts:** Chart.js  
+- **Charts & Analytics:** Chart.js  
 
 ---
 
@@ -127,8 +134,8 @@ echowall/
 ## ▶️ Run Locally
 
 ```bash
-git clone https://github.com/your-username/echowall.git
-cd echowall
+git clone https://github.com/vikaskumar098/echowall-hackathon-project.git
+cd echowall-hackathon-project
 pip install -r requirements.txt
 python -m uvicorn backend.main:app --reload
 ````
@@ -140,8 +147,8 @@ python -m uvicorn backend.main:app --reload
 ✅ Fully anonymous user experience
 🎨 Emotion-aware premium UI
 ⚡ Smooth, flicker-free interactions
-📊 Real-time analytics modal
-🚀 Scalable backend architecture
+📊 Real-time analytics dashboard
+🚀 Scalable FastAPI backend
 💸 Zero dependency on paid APIs
 
 ---
@@ -168,18 +175,17 @@ python -m uvicorn backend.main:app --reload
 
 ## 👥 Hackathon Team — **ByteX**
 
-| Name            | LinkedIn                                                       |
-| --------------- | -------------------------------------------------------------- |
-| **Vikas Kumar** | [LinkedIn](https://www.linkedin.com/in/vikas0905/)             |
-| **Anand Bhade** | [LinkedIn](https://www.linkedin.com/in/anand-bhade-6ab047314/) |
+| Name            | LinkedIn                                                                                                 |
+| --------------- | -------------------------------------------------------------------------------------------------------- |
+| **Vikas Kumar** | [https://www.linkedin.com/in/vikas0905/](https://www.linkedin.com/in/vikas0905/)                         |
+| **Anand Bhade** | [https://www.linkedin.com/in/anand-bhade-6ab047314/](https://www.linkedin.com/in/anand-bhade-6ab047314/) |
 
 ---
 
 ## 🎥 Demo Preview
 
 <p align="center">
-<img width="1915" height="1040" alt="image" src="https://github.com/user-attachments/assets/314a29f4-0d25-4ba9-9983-66cd01bffd55" />
-
+  <img width="100%" alt="EchoWall Demo" src="https://github.com/user-attachments/assets/314a29f4-0d25-4ba9-9983-66cd01bffd55" />
 </p>
 
 ---
@@ -187,4 +193,3 @@ python -m uvicorn backend.main:app --reload
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Inter&size=22&pause=1000&color=22C55E&center=true&vCenter=true&width=720&lines=Thanks+for+exploring+EchoWall!;If+this+project+resonates+with+you+—+Star+⭐+the+repo" />
 </p>
-
